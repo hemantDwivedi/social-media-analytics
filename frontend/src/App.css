@@ -1,0 +1,23 @@
+/* src/App.css */
+
+.card-number {
+    font-size: 3rem;
+    font-weight: bold;
+    color: #1A5319!important;
+}
+
+.card-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.card-text {
+    font-size: 1.2rem;
+}
+
+.card {
+    flex: 1 1 200px;
+    margin: 0.5rem; 
+}
+
+
