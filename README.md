@@ -17,10 +17,12 @@ Social media analytics dashboard shows social media posts from different platfor
 ## Screenshots
 
 - Home page
-![Screenshot (134)](https://github.com/user-attachments/assets/cb61a7ca-2489-4ec3-9e3d-489e62369525)
+
+![Screenshot (134)](https://github.com/user-attachments/assets/eafd6f7b-8af8-43dc-a36e-041d5f2d3896)
 
 - Analytics Page
-![Screenshot (135)](https://github.com/user-attachments/assets/d7fbf8d6-a27b-42e9-b75c-635398dd4c69)
+
+![Screenshot (135)](https://github.com/user-attachments/assets/efa1e48d-67c3-4a18-adeb-491754a6b769)
 
 
 ## Tech Stacks
