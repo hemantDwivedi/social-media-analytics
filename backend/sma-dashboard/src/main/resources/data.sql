@@ -37,6 +37,8 @@ INSERT INTO tb_users (id, name, category, bio, contact_options, links)
 VALUES (1, 'John Doe', 'Influencer', 'Bio of John Doe', 'email@example.com', 'https://example.com');
 INSERT INTO tb_users (id, name, category, bio, contact_options, links)
 VALUES (2, 'Ryan', 'Actor', 'Bio of John Doe', 'email@example.com', 'https://example.com');
+INSERT INTO tb_users (id, name, category, bio, contact_options, links)
+VALUES (3, 'Tony', 'Entrepreneur', 'Bio of John Doe', 'email@example.com', 'https://example.com');
 
 INSERT INTO social_media_account (id, user_id, platform, followers_count, following_count, posts_count)
 VALUES (1, 1, 'Twitter', 1000, 150, 200);

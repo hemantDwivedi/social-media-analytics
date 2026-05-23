@@ -1,17 +1,20 @@
-body {
-    color: #0A0A0A!important;
-}
+@import "tailwindcss";
 
-.analytics-card {
-    background-color: #D6EFD8!important;
-    color: #0A0A0A!important;
-}
 
-.social-media-card {
-    background-color: #508D4E!important;
-    color: #FFFFFF!important;
-}
-
-.my-button {
-    background-color: #80AF81!important;
+@layer base {
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+  body {
+    background-color: #09090b;
+    color: #fafafa;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    letter-spacing: -0.025em;
+  }
+  .font-mono {
+    font-variant-numeric: tabular-nums lining-nums;
+  }
 }
