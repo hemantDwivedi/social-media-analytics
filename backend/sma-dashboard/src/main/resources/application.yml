@@ -15,3 +15,12 @@ spring:
   h2:
     console:
       enabled: true
+
+app:
+  jwt:
+    secret: ${JWT_KEY}
+    expiration-ms: 86400000
+
+
+cors:
+  allowed-origins: http://localhost:3000

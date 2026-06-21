@@ -1,6 +1,6 @@
 package com.hemant.smad.socialmediaaccount;
 
-import com.hemant.smad.user.User;
+import com.hemant.smad.user.Profile;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -21,6 +21,6 @@ public class SocialMediaAccount {
     private int postsCount;
 
     @ManyToOne
-    @JoinColumn(name = "user_id")
-    private User user;
+    @JoinColumn(name = "profile_id")
+    private Profile profile;
 }

@@ -1,20 +1,42 @@
-import './App.css'
-import React from 'react';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import Dashboard from './components/Dashboard';
-import UserAnalytics from './components/UserAnalytics';
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { AuthProvider } from "./context/AuthContext";
+import ProtectedRoute from "./components/Router";
+import AuthPage from "./components/AuthPage";
+import Dashboard from "./components/Dashboard";
+import UserAnalytics from "./components/UserAnalytics";
 
 function App() {
   return (
-    <div>
+    <AuthProvider>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Dashboard />} />
-          <Route path="/users/:userId" element={<UserAnalytics />} />
+          {/* Public */}
+          <Route path="/login" element={<AuthPage />} />
+
+          {/* Protected */}
+          <Route
+            path="/"
+            element={
+              <ProtectedRoute>
+                <Dashboard />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/users/:userId"
+            element={
+              <ProtectedRoute>
+                <UserAnalytics />
+              </ProtectedRoute>
+            }
+          />
+
+          {/* Catch-all */}
+          <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </BrowserRouter>
-    </div>
-  )
+    </AuthProvider>
+  );
 }
 
-export default App
+export default App;

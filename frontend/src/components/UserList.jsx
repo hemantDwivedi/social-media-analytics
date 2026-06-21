@@ -46,7 +46,6 @@ const UserList = ({ users }) => {
                             </div>
                         </div>
 
-                        {/* Title Context Mapping */}
                         <h5 className="text-base font-bold tracking-tight text-zinc-200 transition-colors duration-200 group-hover:text-white truncate">
                             {user.name}
                         </h5>
@@ -56,7 +55,6 @@ const UserList = ({ users }) => {
                         </p>
                     </div>
 
-                    {/* Execution Trigger Layer */}
                     <div className="mt-5 pt-3.5 border-t border-zinc-800/30">
                         <Link 
                             to={`/users/${user.id}`} 
