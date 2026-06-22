@@ -1,4 +1,4 @@
-package com.hemant.smad.user;
+package com.hemant.smad.profile;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
