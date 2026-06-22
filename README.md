@@ -1,4 +1,4 @@
-# Social Media Analytics Dashboard
+# Social Pulse
 Social media analytics dashboard shows social media posts from different platforms.
 
 ## Dashboard feature
@@ -21,13 +21,9 @@ Social media analytics dashboard shows social media posts from different platfor
   <img width="1916" height="1079" alt="image" src="https://github.com/user-attachments/assets/c105e140-60bc-4465-89d0-abbf98c3be4e" />
 
 
-- Home page
+- Dashboard
 
-![Screenshot (134)](https://github.com/user-attachments/assets/eafd6f7b-8af8-43dc-a36e-041d5f2d3896)
-
-- Analytics Page
-
-![Screenshot (135)](https://github.com/user-attachments/assets/efa1e48d-67c3-4a18-adeb-491754a6b769)
+<img width="1897" height="1079" alt="image" src="https://github.com/user-attachments/assets/f1300ac9-f4dd-4436-86fa-07f607a7676c" />
 
 
 ## Tech Stacks
