@@ -13,18 +13,18 @@ import java.util.Optional;
 @RestController
 @RequestMapping("/users")
 @RequiredArgsConstructor
-public class UserController {
-    private final UserRepository userRepository;
+public class ProfileController {
+    private final ProfileRepository profileRepository;
 
     @GetMapping("/{id}")
-    public ResponseEntity<User> findById(@PathVariable Long id){
-        Optional<User> user = userRepository.findById(id);
+    public ResponseEntity<Profile> findById(@PathVariable Long id){
+        Optional<Profile> user = profileRepository.findById(id);
         if (user.isPresent()) return ResponseEntity.ok(user.get());
-        throw new RuntimeException("User not found");
+        throw new RuntimeException("Profile not found");
     }
 
     @GetMapping
-    public ResponseEntity<List<User>> findAll(){
-        return ResponseEntity.ok(userRepository.findAll());
+    public ResponseEntity<List<Profile>> findAll(){
+        return ResponseEntity.ok(profileRepository.findAll());
     }
 }

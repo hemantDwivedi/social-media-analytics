@@ -40,8 +40,7 @@ function UserDetails({ user }) {
                         </p>
                     )}
                 </div>
-
-                {/* Grid Mapping Metadata Channels */}
+                
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-3 border-t border-zinc-800/40 w-full">
                     {/* Contact Option Stream */}
                     <div className="flex items-center gap-2 text-xs text-zinc-500 font-medium">
@@ -53,7 +52,6 @@ function UserDetails({ user }) {
                         </span>
                     </div>
 
-                    {/* External Link Channel */}
                     {user.links && (
                         <div className="flex items-center gap-2 text-xs text-zinc-500 font-medium">
                             <div className="flex h-6 w-6 items-center justify-center rounded-md bg-zinc-900 border border-zinc-800 text-zinc-400">
