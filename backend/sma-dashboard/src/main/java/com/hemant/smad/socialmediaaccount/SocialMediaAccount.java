@@ -1,6 +1,6 @@
 package com.hemant.smad.socialmediaaccount;
 
-import com.hemant.smad.user.Profile;
+import com.hemant.smad.profile.Profile;
 import jakarta.persistence.*;
 import lombok.*;
 

@@ -1,4 +1,4 @@
-package com.hemant.smad.user;
+package com.hemant.smad.profile;
 
 import jakarta.persistence.*;
 import lombok.*;
