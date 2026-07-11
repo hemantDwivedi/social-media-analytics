@@ -1,71 +1,83 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const UserList = ({ users }) => {
+const UserList = ({ users, isLoading }) => {
+    if (isLoading) {
+        return (
+            <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+                {[...Array(3)].map((_, i) => (
+                    <div
+                        key={i}
+                        className="animate-pulse rounded-xl border border-zinc-200 bg-white p-5"
+                    >
+                        <div className="mb-5 flex items-center justify-between">
+                            <div className="h-10 w-10 rounded-lg bg-zinc-100" />
+                            <div className="h-5 w-16 rounded-full bg-zinc-100" />
+                        </div>
+                        <div className="h-4 w-2/3 rounded bg-zinc-100" />
+                        <div className="mt-2 h-3 w-full rounded bg-zinc-100" />
+                        <div className="mt-5 h-9 w-full rounded-lg bg-zinc-100" />
+                    </div>
+                ))}
+            </div>
+        );
+    }
+
     if (!users || users.length === 0) {
         return (
-            <div className="relative overflow-hidden rounded-2xl border border-zinc-800/60 bg-zinc-950/20 p-12 text-center backdrop-blur-xl animate-fade-in">
-                <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_center,rgba(99,102,241,0.03),transparent_70%)]" />
-                <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-xl border border-zinc-800 bg-zinc-900/50 text-zinc-400 shadow-inner">
-                    <svg className="h-5 w-5 opacity-60" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 13.5h3.86a2.25 2.25 0 012.008 1.24l.885 1.77a2.25 2.25 0 002.007 1.24h1.98a2.25 2.25 0 002.007-1.24l.885-1.77a2.25 2.25 0 012.007-1.24h3.86m-18 0h18a2.25 2.25 0 002.25-2.25V6.75A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25v4.5A2.25 2.25 0 002.25 13.5z" />
+            <div className="rounded-2xl border border-dashed border-zinc-300 bg-zinc-50/50 p-12 text-center">
+                <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-zinc-100 text-zinc-400">
+                    <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M15 19.128a9.38 9.38 0 002.625.372 9.337 9.337 0 004.121-.952 4.125 4.125 0 00-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 018.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0111.964-3.07M12 6.375a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zm8.25 2.25a2.625 2.625 0 11-5.25 0 2.625 2.625 0 015.25 0z" />
                     </svg>
                 </div>
-                <h3 className="text-sm font-semibold tracking-tight text-zinc-200">No active telemetry profiles</h3>
-                <p className="mt-1 text-xs text-zinc-500 max-w-xs mx-auto leading-relaxed">
-                    The requested pipeline segment returned an unindexed layer. Awaiting stream processing initiation.
+                <h3 className="text-sm font-semibold tracking-tight text-zinc-900">No profiles yet</h3>
+                <p className="mx-auto mt-1 max-w-xs text-xs leading-relaxed text-zinc-500">
+                    Connect a social account to start tracking engagement and growth here.
                 </p>
             </div>
         );
     }
 
     return (
-        <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 animate-slide-up">
-            {users.map(user => (
-                <div 
-                    key={user.id} 
-                    className="group relative flex flex-col justify-between overflow-hidden rounded-xl border border-zinc-800/50 bg-zinc-900/20 p-5 backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 hover:border-zinc-700/60 hover:bg-zinc-900/40 hover:shadow-[0_12px_30px_-10px_rgba(0,0,0,0.6),0_0_0_1px_rgba(255,255,255,0.02)]"
+        <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            {users.map((user) => (
+                <div
+                    key={user.id}
+                    className="group flex flex-col justify-between rounded-xl border border-zinc-200 bg-white p-5 shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:border-indigo-200 hover:shadow-md hover:shadow-indigo-100/50"
                 >
-                    <div className="absolute inset-x-0 top-0 h-px bg-linear-to-r from-transparent via-zinc-800 to-transparent opacity-40 transition-all duration-500 group-hover:via-indigo-500/40 group-hover:opacity-100" />
-                    
-                    <div className="absolute -right-10 -top-10 -z-10 h-32 w-32 rounded-full bg-indigo-500/0 blur-2xl transition-all duration-500 group-hover:bg-indigo-500/5" />
-
                     <div>
-
-                        <div className="flex items-start justify-between gap-4 mb-5">
-                            <div className="relative flex h-10 w-10 shrink-0 select-none items-center justify-center rounded-lg border border-zinc-800 bg-linear-to-b from-zinc-800/80 to-zinc-900/90 font-mono text-xs font-bold text-zinc-300 transition-all duration-300 group-hover:border-indigo-500/30 group-hover:from-zinc-800 group-hover:to-zinc-900 group-hover:text-indigo-400 group-hover:shadow-[0_0_15px_rgba(99,102,241,0.15)]">
+                        <div className="mb-5 flex items-start justify-between gap-4">
+                            <div className="grid h-10 w-10 shrink-0 place-items-center rounded-lg bg-indigo-50 text-sm font-bold text-indigo-600">
                                 {String(user.name).charAt(0).toUpperCase()}
                             </div>
-                            
-                            <div className="inline-flex items-center gap-1.5 rounded-full border border-zinc-800/80 bg-zinc-950/40 px-2.5 py-0.5 font-mono text-[10px] font-medium uppercase tracking-wider text-zinc-400 backdrop-blur-sm transition-colors duration-200 group-hover:border-zinc-700 group-hover:text-zinc-300">
-                                <span className="relative flex h-1.5 w-1.5">
-                                    <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-indigo-400/40 opacity-75 duration-1000" />
-                                    <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-indigo-500/80" />
-                                </span>
+
+                            <span className="inline-flex items-center gap-1.5 rounded-full bg-emerald-50 px-2.5 py-0.5 text-xs font-medium text-emerald-700">
+                                <span className="flex h-1.5 w-1.5 rounded-full bg-emerald-500" />
                                 {user.category}
-                            </div>
+                            </span>
                         </div>
 
-                        <h5 className="text-base font-bold tracking-tight text-zinc-200 transition-colors duration-200 group-hover:text-white truncate">
+                        <h5 className="truncate text-base font-semibold tracking-tight text-zinc-900">
                             {user.name}
                         </h5>
-                        
-                        <p className="mt-1.5 text-xs leading-relaxed text-zinc-500 transition-colors duration-200 group-hover:text-zinc-400">
-                            Telemetry active. Process logs to synchronize live metric velocity matrices.
+
+                        <p className="mt-1.5 text-xs leading-relaxed text-zinc-500">
+                            Engagement and reach are being tracked. Open analytics for the full breakdown.
                         </p>
                     </div>
 
-                    <div className="mt-5 pt-3.5 border-t border-zinc-800/30">
-                        <Link 
-                            to={`/users/${user.id}`} 
-                            className="inline-flex w-full items-center justify-center gap-1.5 rounded-lg border border-zinc-800 bg-zinc-950 px-4 py-2 text-xs font-medium text-zinc-300 shadow-sm transition-all duration-200 hover:border-zinc-700 hover:bg-zinc-900 hover:text-white focus:outline-none focus:ring-2 focus:ring-indigo-500/30 active:scale-[0.98]"
+                    <div className="mt-5 border-t border-zinc-100 pt-4">
+                        <Link
+                            to={`/users/${user.id}`}
+                            className="inline-flex w-full items-center justify-center gap-1.5 rounded-lg bg-indigo-600 px-4 py-2 text-xs font-semibold text-white transition-colors duration-200 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 active:scale-[0.98]"
                         >
-                            <span>View Analytics</span>
-                            <svg 
-                                className="h-3 w-3 text-zinc-500 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:text-zinc-300" 
-                                fill="none" 
-                                viewBox="0 0 24 24" 
-                                stroke="currentColor" 
+                            View analytics
+                            <svg
+                                className="h-3 w-3 transition-transform duration-200 group-hover:translate-x-0.5"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                stroke="currentColor"
                                 strokeWidth={2.5}
                             >
                                 <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
