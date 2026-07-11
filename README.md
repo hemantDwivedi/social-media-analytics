@@ -14,6 +14,26 @@ Social media analytics dashboard shows social media posts from different platfor
 - Total comments
 - Total shares
 
+## Xquik import helper
+
+The React frontend can map Xquik X/Twitter responses into the existing
+analytics cards with `frontend/src/services/xquikAnalytics.js`.
+
+```js
+import { buildXquikAccount, buildXquikAnalytics } from "./services/xquikAnalytics";
+
+const tweetsResponse = await fetch(
+  "https://xquik.com/api/v1/x/tweets/search?q=from:xquik&limit=25",
+  { headers: { "x-api-key": process.env.XQUIK_API_KEY } }
+).then((response) => response.json());
+
+const analytics = buildXquikAnalytics(tweetsResponse.tweets);
+const account = buildXquikAccount(tweetsResponse.author);
+```
+
+Keep the Xquik API key in a backend or local environment and pass only the
+normalized analytics into the UI.
+
 ## Screenshots
 
 - Sign-up/Sign-in page
